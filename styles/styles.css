@@ -97,7 +97,7 @@ body {
   width: var(--basic-width);
   margin: 0 auto;
   margin-top: 40px;
-  padding-left: 40px;
+  /* padding-left: 40px; */
   color: var(--basic-black);
   background: var(--basic-yellow-light);
 }
@@ -129,6 +129,8 @@ body {
 .header-wrapper {
   position: absolute;
   top: -22px;
+  margin-left: 40px;
+  z-index: 2;
 }
 
 .search-form {
@@ -329,11 +331,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   width: inherit;
-  padding-bottom: 135px;
 }
-
-
-
 
 .navigation-list.navigation-catalog {
   display: grid;
@@ -412,7 +410,7 @@ body {
 }
 
 .gadgets-slider-wrapper {
-  position: absolute;
+  position: relative;
   top: -150px;
   left: 0;
   display: flex;
@@ -423,20 +421,52 @@ body {
   display: flex;
 }
 
+.image-describe-wrapper {
+  align-self: center;
+  margin-left: 40px;
+  height: 560px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.image-describe {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  height: auto;
+  margin: 0;
+  margin-top: 120px;
+}
+
 .image-describe b {
+  margin-bottom: 29px;
   font-family: "Raleway", sans-serif;
   font-size: 50px;
   line-height: 50px;
   color: var(--basic-black);
+  z-index: 2;
 }
 
 .slider-number {
   position: absolute;
-  top: 40%;
-  right: 10%;
+  top: -40px;
+  right: 49px;
   font-size: 180px;
+  font-weight: 700;
   line-height: 30px;
   color: var(--basic-white);
+  z-index: 1;
+}
+
+.image-text {
+  flex-grow: 1;
+}
+
+.slider-detail {
+  margin-bottom: 100px;
 }
 
 .table-gadget-properties b {
@@ -453,15 +483,38 @@ body {
   font-weight: 400;
 }
 
-.slider-prev {
-  order: -1;
+
+
+.slider-btn-wrapper {
+  position: absolute;
+  width: 530px;
+  top: 50%;
+  margin-left: 30px;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+
+}
+
+.slider-btn {
+  width: 20px;
+  height: 60px;
+  border: none;
+  background-image: url("../images/arrow-left.svg");
+  background-repeat: no-repeat;
+  background-color: transparent;
+  cursor: pointer;
+
 }
 
 .slider-next {
-  order: 0;
+  transform: rotateZ(180deg);
 }
 
 .slider-pagination {
+  position: absolute;
+  top: 50%;
+  right: 100px;
   display: flex;
   margin: 0;
   padding: 0;
