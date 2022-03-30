@@ -405,17 +405,12 @@ body {
 .gadgets-slider {
   position: relative;
   width: var(--basic-width);
-  min-height: 410px;
   margin: 0 auto;
-}
-
-.gadgets-slider-wrapper {
-  position: relative;
-  top: -150px;
-  left: 0;
+  margin-top: -150px;
   display: flex;
   align-items: center;
 }
+
 
 .gadget-card-wrapper {
   display: flex;
@@ -492,6 +487,18 @@ body {
 }
 
 
+
+.table-gadget-properties tr {
+  display: grid;
+  grid-template-columns: 150px 150px 150px;
+  column-gap: 20px;
+
+}
+
+.table-gadget-properties tr:not(:last-child) {
+  margin-bottom: 12px;
+}
+
 .table-gadget-properties b {
   font-weight: 400;
 }
@@ -536,15 +543,35 @@ body {
 
 .slider-pagination {
   position: absolute;
-  bottom: 128px;
-  right: 100px;
+  bottom: 148px;
+  right: 0px;
+  width: 76px;
+  justify-content: space-between;
   display: flex;
-  justify-content: center;
   margin: 0;
   padding: 0;
   list-style-type: none;
 }
 
+.slider-pagination-item {
+  display: flex;
+}
+
+.pagination-btn {
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  margin: 0;
+  background-color: var(--basic-white);
+  border: 2px solid var(--basic-black);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.pagination-btn-current {
+  background-color: var(--basic-black);
+
+}
 
 
 /*Main/catalog-categories  */
