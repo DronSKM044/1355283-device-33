@@ -97,7 +97,6 @@ body {
   width: var(--basic-width);
   margin: 0 auto;
   margin-top: 40px;
-  /* padding-left: 40px; */
   color: var(--basic-black);
   background: var(--basic-yellow-light);
 }
@@ -120,6 +119,7 @@ body {
 
 .page-header a:focus {
   border: 2px solid var(--basic-purple);
+  outline: none;
 }
 
 .header-link {
@@ -145,6 +145,9 @@ body {
   width: 360px;
   height: 40px;
   padding-left: 48px;
+  font-family: "Rubik", sans-serif;
+  font-size: 16px;
+  line-height: 20px;
   background: transparent;
   border: 2px solid var(--basic-black);
   border-radius: 50px 0 0 50px;
@@ -156,13 +159,19 @@ body {
   font-size: 16px;
   line-height: 20px;
   color: var(--basic-black);
+  opacity: 0.3;
 }
 
 
 .search-form input[type="text"]:focus {
   box-shadow: none;
-  outline: none;
+  outline: 2px solid var(--basic-purple);
   background-color: transparent;
+}
+
+.search-form input[type="text"]:disabled,
+.search-form input[type="text"]:disabled+span {
+  opacity: 0.3;
 }
 
 .search-icon {
@@ -184,10 +193,32 @@ body {
   width: 160px;
   height: 40px;
   margin-right: 26px;
+  font-family: "Rubik", sans-serif;
+  font-size: 16px;
+  line-height: 20px;
   background-color: transparent;
   border: 2px solid var(--basic-black);
   border-left: none;
   border-radius: 0 50px 50px 0;
+  cursor: pointer;
+}
+
+.btn-search-submit:hover {
+  background-color: var(--basic-black);
+  color: var(--basic-white);
+}
+
+.btn-search-submit:focus {
+  outline: 2px solid var(--basic-purple);
+}
+
+.btn-search-submit:active {
+  background-color: var(--basic-black);
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.btn-search-submit:disabled {
+  opacity: 0.3;
 }
 
 .catalog-form {
@@ -236,6 +267,14 @@ body {
   opacity: 0;
 }
 
+.catalog-list-opened:hover {
+  border: 2px solid rgba(0, 0, 0, 1);
+}
+
+.catalog-list-opened:hover .catalog-list-plus::after,
+.catalog-list-opened:hover .catalog-list-plus::before {
+  opacity: 1;
+}
 
 .navigation {
   width: 1040px;
@@ -271,6 +310,7 @@ body {
 }
 
 .navigation-user .navigation-item:nth-of-type(2) {
+  margin-left: 100px;
   margin-right: 36px;
 }
 
@@ -303,7 +343,6 @@ body {
 
 .user-link-sign-in {
   padding-left: 27px;
-  padding-right: 150px;
   background-image: url("../images/icons/sign-in.svg");
   background-repeat: no-repeat;
   background-size: 13px 13px;
@@ -369,6 +408,7 @@ body {
 .navigation-list.navigation-services {
   min-width: 471px;
   justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
   margin-left: auto;
   font-family: "Raleway", sans-serif;
@@ -381,9 +421,6 @@ body {
   margin-right: 45px;
 }
 
-.navigation-services a {
-  padding: 15px 0;
-}
 
 /* Main */
 .main-container {
