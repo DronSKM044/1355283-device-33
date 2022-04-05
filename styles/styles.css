@@ -904,20 +904,63 @@ body {
 }
 
 .rare-deliver-link {
+  position: relative;
   display: block;
   width: var(--basic-width);
   margin: 70px auto;
   padding: 40px 0;
   font-size: 20px;
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
   line-height: 23px;
   text-align: center;
+  color: var(--basic-black);
   background-color: var(--basic-light);
 }
 
-.rare-deliver-icon {
-  display: block;
-  height: 100%;
+
+.rare-deliver-link:active {
+  opacity: 0.3;
+}
+
+.rare-deliver-link:focus {
+  outline: 2px solid var(--basic-purple);
+}
+
+.rare-deliver-link:hover.rare-deliver-link::before {
+  background-color: var(--basic-yellow-dark);
+}
+
+.rare-deliver-link:hover.rare-deliver-link::after {
+  color: var(--basic-black);
+}
+
+.rare-deliver-link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 125px;
+  height: 100%;
+  background-color: var(--basic-yellow-light);
+  background-image: url(../images/truck-delivery.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.rare-deliver-link::after {
+  content: "i";
+  position: absolute;
+  top: 50%;
+  right: 42.5px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-transform: lowercase;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(220, 220, 220, 0.5);
 }
 
 /* Main/index-columns */
