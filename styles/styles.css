@@ -80,6 +80,7 @@ body {
   text-align: center;
   text-transform: uppercase;
   text-decoration: none;
+  letter-spacing: 5px;
   color: var(--basic-black);
 }
 
@@ -525,7 +526,7 @@ body {
   position: relative;
   font-weight: 800;
   line-height: 21px;
-  letter-spacing: 2px;
+  letter-spacing: 5px;
   padding: 10px 0;
   z-index: 1;
 }
@@ -975,9 +976,20 @@ body {
 }
 
 .section-title {
+  position: relative;
   padding-top: 47px;
   margin: 0;
   margin-bottom: 48px;
+}
+
+.section-title::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  height: 7px;
+  width: 84px;
+  background-color: var(--basic-black);
 }
 
 .about {
@@ -992,10 +1004,24 @@ body {
 .delivery-options-list {
   padding: 0;
   margin: 0;
+  list-style-type: none;
 }
 
 .delivery-item {
+  position: relative;
   margin-left: 37.5px;
+}
+
+.delivery-item::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -26px;
+  width: 8px;
+  height: 8px;
+  transform: translateY(-50%);
+  background-color: var(--basic-yellow-dark);
+  border-radius: 50%;
 }
 
 .delivery-item:not(:last-child) {
@@ -1042,7 +1068,7 @@ body {
 
 .contacts-address .contacts-phone {
   color: var(--basic-dark);
-  text-decoration-line: underline;
+  border-bottom: 1px solid var(--basic-dark);
 }
 
 .contacts-schedule {
@@ -1087,14 +1113,31 @@ body {
   margin-top: 10px;
 }
 
-.field {
+.newsletter-field {
   display: inline-block;
-  width: 555px;
+  width: 381px;
+  padding-left: 16px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 3px solid #C4C4C4;
+  transition: 0.2s ease-in-out;
+}
+
+.newsletter-field:focus {
+  width: 557px;
+  outline: none;
 }
 
 .newsletter-btn {
   width: 255px;
   padding: 18px 29px;
+  font-family: "Raleway", sans-serif;
+  font-size: 18px;
+  line-height: 21px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  border: 3px solid #C4C4C4;
+  cursor: pointer;
 }
 
 .newsletter-form-container {
@@ -1106,8 +1149,22 @@ body {
 }
 
 .newsletter-slogan {
+  position: relative;
+  padding-left: 32px;
   margin-left: auto;
   align-self: center;
+}
+
+.newsletter-slogan::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  transform: translateY(-50%);
+  background-image: url(../images/icons/it-free.svg);
+  background-repeat: no-repeat;
 }
 
 /* Page-footer */
