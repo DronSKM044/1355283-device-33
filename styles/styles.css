@@ -166,8 +166,17 @@ body {
 
 .search-form input[type="text"]:focus {
   box-shadow: none;
-  outline: 2px solid var(--basic-purple);
   background-color: transparent;
+}
+
+.search-form input[type="text"]:focus+span {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: 360px;
+  height: 100%;
+  padding: 2px;
+  outline: 2px solid var(--basic-purple);
 }
 
 .search-form input[type="text"]:disabled,
@@ -213,10 +222,11 @@ body {
 .btn-search-submit:focus.btn-search-submit::after {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -3px;
+  left: -3px;
   width: 100%;
   height: 100%;
+  padding: 3px;
   outline: 2px solid var(--basic-purple);
 }
 
@@ -258,10 +268,11 @@ body {
 .catalog-list-opened:focus.catalog-list-opened::after {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -2px;
+  left: -2px;
   width: 100%;
   height: 100%;
+  padding: 2px;
   outline: 2px solid var(--basic-purple);
 }
 
@@ -280,7 +291,6 @@ body {
   transform: translate(-50%, -50%);
   background-color: var(--basic-black);
   opacity: 0.3;
-  transition: 0.3s ease-in-out;
 }
 
 .catalog-list-plus::after {
@@ -804,7 +814,9 @@ body {
   border-right: 7px solid var(--basic-black);
 }
 
-
+.btn-item {
+  position: relative;
+}
 
 .btn-item:not(:last-child) {
   margin-bottom: 35px;
@@ -840,6 +852,22 @@ body {
 
 .services-btn.active {
   color: var(--basic-yellow-light);
+}
+
+.services-btn.active:hover {
+  color: rgba(255, 225, 127, 0.5);
+}
+
+.services-btn.active:active {
+  color: rgba(255, 225, 127, 0.3);
+}
+
+.services-btn.active:focus {
+  outline: none;
+}
+
+.services-btn.active:focus.services-btn.active::after {
+  outline: 2px solid var(--basic-purple);
 }
 
 .services-btn.active::before {
@@ -1191,7 +1219,6 @@ body {
 .footer-container {
   display: flex;
   justify-content: space-between;
-  text-align: center;
   margin-bottom: 62px;
   padding-top: 31px;
 }
@@ -1210,21 +1237,38 @@ body {
 
 .footer-navigation-services {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   flex-wrap: wrap;
   margin: 0;
   padding: 0;
   list-style-type: none;
 }
 
-.footer-navigation-services .navigation-item:not(:last-child) {
+/* .footer-navigation-services .navigation-item:not(:last-child) {
   margin-right: 35px;
-}
+} */
 
 .footer-navigation-link {
+  padding: 1px;
+  font-family: "Raleway", sans-serif;
   font-size: 18px;
   line-height: 21px;
+  letter-spacing: 0.2em;
   text-transform: uppercase
+}
+
+.footer-navigation-link:hover {
+  color: var(--basic-yellow-dark);
+  border-bottom: 2px solid var(--basic-yellow-dark);
+}
+
+.footer-navigation-link:active {
+  opacity: 0.3;
+}
+
+.footer-navigation-link:focus {
+  border: none;
+  outline: 2px solid var(--basic-purple);
 }
 
 .footer-phone {
@@ -1232,18 +1276,48 @@ body {
 }
 
 .footer-contacts-phone .contacts-phone {
+  padding: 1px;
   line-height: 20px;
-  text-decoration-line: underline;
+  text-decoration-line: none;
+  border-bottom: 1px solid var(--basic-light);
+}
+
+.footer-contacts-phone:hover .contacts-phone {
+  color: var(--basic-yellow-dark);
+  border-color: var(--basic-yellow-dark);
+}
+
+.footer-contacts-phone:active .contacts-phone {
+  opacity: 0.3;
+}
+
+.footer-contacts-phone .contacts-phone:focus {
+  border: none;
+  outline: 2px solid var(--basic-purple);
 }
 
 .footer-social-wrapper {
+  position: relative;
   display: flex;
   justify-content: flex-end;
 }
 
+.footer-social-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 80px;
+  height: 7px;
+  transform: translateY(-50%);
+  background-color: var(--basic-yellow-dark);
+}
+
+
 .footer-social {
   width: 150px;
-  margin-right: 330px;
+  margin-left: auto;
+  margin-right: 360px;
 }
 
 .footer-social-list {
@@ -1259,19 +1333,75 @@ body {
 }
 
 .social-btn {
+  position: relative;
   display: block;
   width: 40px;
   height: 40px;
   margin-bottom: 8px;
-  background-color: var(--basic-gray);
+  background-color: rgba(255, 255, 255, 0.3);
   border-radius: 50%;
+}
+
+.social-btn:hover {
+  background-color: var(--basic-yellow-dark);
+}
+
+.social-btn:active,
+.social-btn:active::before {
+  opacity: 0.3;
+}
+
+.social-btn:focus {
+  outline: none;
+}
+
+.social-btn:focus.social-btn::before {
+  outline: 2px solid var(--basic-purple);
+}
+
+.social-btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 45px;
+  height: 45px;
+  transform: translate(-50%, -50%);
+  background-repeat: no-repeat;
+}
+
+.footer-social-item:nth-child(1) .social-btn:before {
+  background-image: url(../images/social/facebook.svg);
+  background-position: center;
+}
+
+.footer-social-item:nth-child(2) .social-btn:before {
+  background-image: url(../images/social/instagram.svg);
+  background-position: center;
+}
+
+.footer-social-item:nth-child(3) .social-btn:before {
+  background-image: url(../images/social/twitter.svg);
+  background-position: center;
 }
 
 .htmlacademy-link {
   display: block;
-  width: 175px;
   text-align: right;
 }
+
+.htmlacademy-link:hover .logo-svg {
+  fill: var(--basic-white);
+}
+
+.htmlacademy-link:active .logo-svg {
+  opacity: 0.3;
+}
+
+.htmlacademy-link:focus {
+  outline: 2px solid var(--basic-purple);
+}
+
 
 /* Monopods-for-selfy */
 
